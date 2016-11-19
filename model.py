@@ -58,8 +58,9 @@ class Model:
         self.__film_lst.append({'id': id, 'name': name, 'country': country, 'year': year, 'director_id': director_id})
 
     def film_country(self, country):
-        evening_sessions = filter(lambda element: str(element['country']) == country, self.__film_lst)
-        return [i for i in self.__director_lst for j in self.__film_lst if i['id'] == j['director_id']]
+        UkraineFilm = filter(lambda element: str(element['country']) == country, self.__film_lst)
+        #return [i for i in self.__director_lst for j in self.__film_lst if i['id'] == j['director_id']& j['country']== 'Ukraine']
+        return [j for i in self.__film_lst if i['country']=='Ukraine' for j in self.__director_lst if j['id']==i['director_id']]
 
     def is_exist(self, id, lst):
         item = filter(lambda x: x['id'] == id, lst)
