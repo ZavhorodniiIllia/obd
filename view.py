@@ -3,8 +3,8 @@ class View:
     def data_base_menu():
         print 'Data base menu\n--------------'
         print 'Choose one of the following items:'
-        print '1) Albom menu'
-        print '2) Photo menu'
+        print '1) Director menu'
+        print '2) Film menu'
         print '3) Exit'
 
     @staticmethod
@@ -15,24 +15,24 @@ class View:
 
 
     @staticmethod
-    def albom_menu():
-        print 'Albom menu'
-        print '1) Add albom\n2) Delete albom\n3) Update\n4) Display albom with  photo_name.BMP\n5) Display\n6) Back\n'
+    def director_menu():
+        print 'Director menu'
+        print '1) Add director\n2) Delete director\n3) Change\n4) Display Ukrainian film\n5) Display\n6) Back\n'
 
     @staticmethod
-    def photo_menu():
-        print 'Photo menu'
-        print '1) Add photo\n2) Delete photo\n3) Update\n4) Display\n5) Back\n'
+    def film_menu():
+        print 'Film menu'
+        print '1) Add film\n2) Delete film\n3) Change\n4) Display\n5) Back\n'
 
     @staticmethod
-    def albom_update_menu():
-        print 'Albom update menu'
-        print '1) Name\n2) Autor\n3) Back\n'
+    def director_update_menu():
+        print 'Director update menu'
+        print '1) Name\n2) Film`s number\n3) Back\n'
 
     @staticmethod
-    def photo_update_menu():
-        print 'Photo update menu'
-        print '1) Name\n2) Time\n3) Cost\n4) Back\n'
+    def film_update_menu():
+        print 'Film update menu'
+        print '1) Name\n2) Countyr\n3) Year\n4) Back\n'
 
     @staticmethod
     def success_message(message):

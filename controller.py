@@ -6,19 +6,19 @@ class Controller:
     def __init__(self, data_base):
         self.model = data_base
 
-    def __albom_controller(self):
+    def __director_controller(self):
         choice = -1
         while choice != 6:
-            View.albom_menu()
+            View.director_menu()
             try:
                 choice = int(raw_input('Enter menu item:\n'))
             except ValueError:
                 View.error_message('Incorrect value')
 
             if choice == 1:
-                name = raw_input('Enter albom name:\n')
-                autor = raw_input('Enter autor:\n')
-                self.model.add_albom(name, autor)
+                name = raw_input('Enter director name:\n')
+                filmsnumber = raw_input('Enter films`n umber:\n')
+                self.model.add_director(name, filmsnumber)
                 View.success_message('Item successfuly added!!!')
             elif choice == 2:
                 try:
@@ -26,28 +26,28 @@ class Controller:
                 except ValueError:
                     View.error_message('Incorrect value\n')
 
-                if not  self.model.is_exist(id, self.model.get_albom()):
+                if not  self.model.is_exist(id, self.model.get_director()):
                     View.error_message('Incorrect id')
                     return
 
-                self.model.delete_albom(id)
+                self.model.delete_director(id)
                 View.success_message('Item successfuly deleted!!!')
 
             elif choice == 3:
-                self.__albom_update_controller()
+                self.__director_update_controller()
 
             elif choice == 4:
-                View.display(self.model.photo_format('bmp'))
+                View.display(self.model.film_country('Ukraine'))
 
             elif choice == 5:
-                View.display(self.model.get_albom())
+                View.display(self.model.get_director())
 
         raw_input('Press -->Enter...\n')
 
-    def __photo_controller(self):
+    def __film_controller(self):
         choice = -1
         while choice != 5:
-            View.photo_menu()
+            View.film_menu()
             try:
                 choice = int(raw_input('Enter menu item:\n'))
             except ValueError:
@@ -55,11 +55,11 @@ class Controller:
 
             if choice == 1:
                 try:
-                    name = raw_input('Enter photo name:\n')
-                    format = str(raw_input('Enter photo format:\n'))
-                    albom_id = int(raw_input('Enter albom_id:\n'))
-                    cost = raw_input('Enter cost:\n')
-                    self.model.add_photo(name, format, cost, albom_id)
+                    name = raw_input('Enter film name:\n')
+                    country = str(raw_input('Enter film`s country:\n'))
+                    director_id = int(raw_input('Enter director id:\n'))
+                    year = raw_input('Enter year:\n')
+                    self.model.add_film(name, country, year, director_id)
                     View.success_message('Item successfuly added!!!')
                 except ValueError:
                     View.error_message('Incorrect value')
@@ -72,86 +72,86 @@ class Controller:
                 except ValueError:
                     View.error_message('Incorrect value')
 
-                if not self.model.is_exist(id, self.model.get_photo()):
+                if not self.model.is_exist(id, self.model.get_film()):
                     View.error_message('Incorrect id')
                     return
 
-                self.model.del_photo(id)
+                self.model.del_film(id)
                 View.success_message('Item successfuly deleted!!!')
 
             elif choice == 3:
-                self.__photo_update_controller()
+                self.__film_update_controller()
 
             elif choice == 4:
-                View.display(self.model.get_photo())
+                View.display(self.model.get_film())
 
         raw_input('Press -->Enter...\n')
 
-    def __albom_update_controller(self):
+    def __director_update_controller(self):
         choice = -1
         try:
             id = int(raw_input('Enter id:\n'))
         except ValueError:
             View.error_message('Incorrect value')
 
-        if  not self.model.is_exist(id, self.model.get_albom()):
+        if  not self.model.is_exist(id, self.model.get_director()):
             View.error_message('Incorrect id')
             return
 
         while choice != 3:
-            View.albom_update_menu()
+            View.director_update_menu()
             try:
                 choice = int(raw_input('Enter menu item:\n'))
             except ValueError:
                 View.error_message('Incorrect value')
 
             if choice == 1:
-                name = raw_input('Enter new albom name:\n')
-                self.model.albom_update(id, 'name', name)
+                name = raw_input('Enter new director name:\n')
+                self.model.director_update(id, 'name', name)
                 View.success_message('Item successfuly updated!!!')
 
             elif choice == 2:
-                autor = raw_input('Enter new autor:\n')
-                self.model.albom_update(id, 'autor', autor)
+                filmsnumber = raw_input('Enter new films`n umber:\n')
+                self.model.director_update(id, 'filmsnumber', filmsnumber)
                 View.success_message('Item successfuly updated!!!')
 
             raw_input('Press -->Enter...\n')
 
-    def __photo_update_controller(self):
+    def __film_update_controller(self):
         choice = -1
         try:
             id = int(raw_input('Enter id:\n'))
         except ValueError:
             View.error_message('Incorrect value')
 
-        if  not self.model.is_exist(id, self.model.get_photo()):
+        if  not self.model.is_exist(id, self.model.get_film()):
             View.error_message('Incorrect id')
             return
 
         while choice != 4:
-            View.photo_update_menu()
+            View.film_update_menu()
             try:
                 choice = int(raw_input('Enter menu item:\n'))
             except ValueError:
                 View.error_message('Incorrect value')
 
             if choice == 1:
-                name = raw_input('Enter new photo name:\n')
-                self.model.photo_update(id, 'name', name)
+                name = raw_input('Enter new film name:\n')
+                self.model.film_update(id, 'name', name)
                 View.success_message('Item successfuly updated!!!')
 
             elif choice == 2:
                 try:
-                    time = raw_input('Enter format:\n')
-                    self.model.photo_update(id, 'format', format)
+                    time = raw_input('Enter country:\n')
+                    self.model.film_update(id, 'country', country)
                     View.success_message('Item successfuly updated!!!')
                 except Exception as e:
                     View.error_message(e.message)
 
             elif choice == 3:
                 try:
-                    cost = float(raw_input('Enter cost:\n'))
-                    self.model.photo_update(id, 'cost', cost)
+                    year = float(raw_input('Enter year:\n'))
+                    self.model.film_update(id, 'year', year)
                     View.success_message('Item successfuly updated!!!')
                 except ValueError:
                     View.error_message('Incorrect value')
@@ -168,10 +168,10 @@ class Controller:
                 View.error_message('Incorrect value')
 
             if choice == 1:
-                self.__albom_controller()
+                self.__director_controller()
 
             elif choice == 2:
-                self.__photo_controller()
+                self.__film_controller()
 
         raw_input('Press -->Enter...')
         self.model.save('data.txt')
