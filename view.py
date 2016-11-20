@@ -2,7 +2,7 @@ class View:
     @staticmethod
     def data_base_menu():
         print 'Data base menu\n--------------'
-        print 'Choose one of the following items:'
+        print 'Choose one of the following menu items:'
         print '1) Director menu'
         print '2) Film menu'
         print '3) Exit'
@@ -26,12 +26,12 @@ class View:
 
     @staticmethod
     def director_update_menu():
-        print 'Director update menu'
+        print 'Director change menu'
         print '1) Name\n2) Film`s number\n3) Back\n'
 
     @staticmethod
     def film_update_menu():
-        print 'Film update menu'
+        print 'Film change menu'
         print '1) Name\n2) Countyr\n3) Year\n4) Back\n'
 
     @staticmethod

@@ -48,7 +48,7 @@ class Model:
     def add_film(self, name, country, year, director_id):
         is_director_exist = filter(lambda element: element['id'] == director_id, self.__director_lst)
         if is_director_exist == []:
-            raise Exception('Incorrect director_id.')
+            raise Exception('Incorrect director id.')
 
         if self.__film_lst == []:
             id = 0

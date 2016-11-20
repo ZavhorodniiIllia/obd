@@ -42,7 +42,7 @@ class Controller:
             elif choice == 5:
                 View.display(self.model.get_director())
 
-        raw_input('Press -->Enter...\n')
+        raw_input('Press: Enter...\n')
 
     def __film_controller(self):
         choice = -1
@@ -85,7 +85,7 @@ class Controller:
             elif choice == 4:
                 View.display(self.model.get_film())
 
-        raw_input('Press -->Enter...\n')
+        raw_input('Press: Enter...\n')
 
     def __director_update_controller(self):
         choice = -1
@@ -115,7 +115,7 @@ class Controller:
                 self.model.director_update(id, 'filmsnumber', filmsnumber)
                 View.success_message('Item successfuly updated!!!')
 
-            raw_input('Press -->Enter...\n')
+            raw_input('Press: Enter...\n')
 
     def __film_update_controller(self):
         choice = -1
@@ -156,7 +156,7 @@ class Controller:
                 except ValueError:
                     View.error_message('Incorrect value')
 
-            raw_input('Press -->Enter...\n')
+            raw_input('Press: Enter...\n')
 
     def run(self):
         choice = -1
@@ -173,5 +173,5 @@ class Controller:
             elif choice == 2:
                 self.__film_controller()
 
-        raw_input('Press -->Enter...')
+        raw_input('Press: Enter...')
         self.model.save('data.txt')
